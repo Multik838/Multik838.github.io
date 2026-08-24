@@ -9,6 +9,9 @@
 ## **Текущие проекты**:
 - Ссылка на мой сайт: https://multik838.github.io/
 
+## **Моё резюме**:
+- Ссылка на моё резюме: https://hh.ru/resume/9ee2a653ff0926fada0039ed1f6a6f6e475753
+
 ## **Стек и инструменты** 
 - SQL (оконные функции, CTE, работа с JSON и XML), Hive SQL, Vertica, Greenplum, PostgreSQL, MySQL, ClickHouse, SQLite
 - AI‑инструменты
