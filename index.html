@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Портфолио · GitHub</title>
+    <!-- Подключаем шрифт и иконки (лёгкие) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ---------------------- Сброс и база ---------------------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 860px;
+            width: 100%;
+        }
+        /* ---------------------- Шапка ---------------------- */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #58a6ff, #a371f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo i { -webkit-text-fill-color: #58a6ff; margin-right: 6px; }
+        .nav a {
+            color: #8b949e;
+            text-decoration: none;
+            margin-left: 1.8rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav a:hover { color: #f0f6fc; }
+        .nav a i { margin-right: 4px; }
+
+        /* ---------------------- Герой ---------------------- */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #58a6ff, #a371f7);
+            padding: 3px;
+            flex-shrink: 0;
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #0d1117;
+            display: block;
+        }
+        .hero-text h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .hero-text .tagline {
+            font-size: 1.1rem;
+            color: #8b949e;
+            margin: 4px 0 8px;
+        }
+        .hero-text .bio {
+            color: #8b949e;
+            max-width: 440px;
+        }
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .badge {
+            background: #161b22;
+            border: 1px solid #30363d;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #8b949e;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .badge:hover {
+            border-color: #58a6ff;
+            color: #fff;
+            background: #1c2333;
+        }
+
+        /* ---------------------- Секции ---------------------- */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 2.2rem 0 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title i { color: #58a6ff; }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.2rem;
+        }
+        .project-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 1.4rem 1.2rem;
+            transition: 0.25s;
+        }
+        .project-card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .project-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .project-card p {
+            color: #8b949e;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+        .project-card .meta {
+            font-size: 0.85rem;
+            color: #484f58;
+            display: flex;
+            gap: 14px;
+            border-top: 1px solid #30363d;
+            padding-top: 10px;
+        }
+        .project-card .meta i { color: #8b949e; margin-right: 3px; }
+
+        /* ---------------------- Контакты ---------------------- */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .contact-links a {
+            background: #161b22;
+            border: 1px solid #30363d;
+            padding: 10px 22px;
+            border-radius: 40px;
+            color: #8b949e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .contact-links a:hover {
+            border-color: #58a6ff;
+            color: #fff;
+            background: #1c2333;
+        }
+        .contact-links i { color: #58a6ff; margin-right: 6px; }
+
+        /* ---------------------- Футер ---------------------- */
+        .footer {
+            margin-top: 2.8rem;
+            border-top: 1px solid #30363d;
+            padding-top: 1.2rem;
+            text-align: center;
+            color: #484f58;
+            font-size: 0.9rem;
+        }
+
+        /* ---------------------- Адаптив ---------------------- */
+        @media (max-width: 600px) {
+            .hero { flex-direction: column; text-align: center; }
+            .hero-text .bio { margin: 0 auto; }
+            .badges { justify-content: center; }
+            .nav a { margin: 0 0.8rem; }
+            .projects { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Шапка -->
+        <header class="header">
+            <div class="logo"><i class="fab fa-github"></i> portfolio</div>
+            <nav class="nav">
+                <a href="#projects"><i class="fas fa-code"></i> Проекты</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Контакты</a>
+            </nav>
+        </header>
+
+        <!-- Герой -->
+        <section class="hero">
+            <div class="avatar">
+                <!-- Замените src на свою аватарку (или удалите img, если не нужна) -->
+                <img src="https://avatars.githubusercontent.com/u/1234567?s=400" alt="avatar" />
+            </div>
+            <div class="hero-text">
+                <h1>Иван Иванов</h1>
+                <div class="tagline">Frontend-разработчик</div>
+                <div class="bio">Создаю удобные интерфейсы и пишу чистый код. Открыт к сотрудничеству.</div>
+                <div class="badges">
+                    <span class="badge"><i class="fas fa-map-pin"></i> Москва</span>
+                    <span class="badge"><i class="fas fa-briefcase"></i> 3+ года</span>
+                    <span class="badge"><i class="fas fa-code"></i> React / Vue</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Проекты -->
+        <h2 class="section-title" id="projects"><i class="fas fa-folder-open"></i> Избранные проекты</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Weather App</h3>
+                <p>Прогноз погоды с картами и графиками</p>
+                <div class="meta">
+                    <span><i class="fab fa-react"></i> React</span>
+                    <span><i class="fas fa-star"></i> 12</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Task Manager</h3>
+                <p>Канбан-доска для командной работы</p>
+                <div class="meta">
+                    <span><i class="fab fa-vuejs"></i> Vue</span>
+                    <span><i class="fas fa-star"></i> 8</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Portfolio Site</h3>
+                <p>Этот сайт — мой личный шаблон</p>
+                <div class="meta">
+                    <span><i class="fas fa-code"></i> HTML/CSS</span>
+                    <span><i class="fas fa-star"></i> 5</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Контакты -->
+        <h2 class="section-title" id="contact"><i class="fas fa-paper-plane"></i> Связаться</h2>
+        <div class="contact-links">
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="#"><i class="fas fa-envelope"></i> Email</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+
+        <!-- Футер -->
+        <footer class="footer">
+            &copy; 2026 · Иван Иванов · Сделано с <i class="fas fa-heart" style="color:#58a6ff;"></i> для GitHub
+        </footer>
+
+    </div>
+</body>
+</html>
