@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Портфолио · GitHub</title>
-    <!-- Подключаем шрифт и иконки (лёгкие) -->
+    <title>Портфолио · Евгений Юдаков</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
     <style>
-        /* ---------------------- Сброс и база ---------------------- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ----- сброс & база ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
             background: #0d1117;
             color: #e6edf3;
             display: flex;
             justify-content: center;
-            padding: 2rem 1rem;
+            padding: 2rem 1.5rem;
             line-height: 1.6;
         }
         .container {
-            max-width: 860px;
+            max-width: 900px;
             width: 100%;
         }
-        /* ---------------------- Шапка ---------------------- */
+
+        /* ----- шапка ----- */
         .header {
             display: flex;
             align-items: center;
@@ -42,19 +47,28 @@
             background: linear-gradient(135deg, #58a6ff, #a371f7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .logo i { -webkit-text-fill-color: #58a6ff; margin-right: 6px; }
+        .logo i {
+            -webkit-text-fill-color: #58a6ff;
+            margin-right: 6px;
+        }
         .nav a {
             color: #8b949e;
             text-decoration: none;
             margin-left: 1.8rem;
             font-weight: 500;
             transition: color 0.2s;
+            font-size: 0.95rem;
         }
-        .nav a:hover { color: #f0f6fc; }
-        .nav a i { margin-right: 4px; }
+        .nav a:hover {
+            color: #f0f6fc;
+        }
+        .nav a i {
+            margin-right: 4px;
+        }
 
-        /* ---------------------- Герой ---------------------- */
+        /* ----- герой ----- */
         .hero {
             display: flex;
             flex-wrap: wrap;
@@ -90,7 +104,7 @@
         }
         .hero-text .bio {
             color: #8b949e;
-            max-width: 440px;
+            max-width: 460px;
         }
         .badges {
             display: flex;
@@ -107,6 +121,12 @@
             color: #8b949e;
             text-decoration: none;
             transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .badge i {
+            color: #58a6ff;
         }
         .badge:hover {
             border-color: #58a6ff;
@@ -114,20 +134,33 @@
             background: #1c2333;
         }
 
-        /* ---------------------- Секции ---------------------- */
+        /* ----- секции ----- */
         .section-title {
             font-size: 1.6rem;
             font-weight: 700;
-            margin: 2.2rem 0 1.2rem;
+            margin: 2.2rem 0 1rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .section-title i { color: #58a6ff; }
+        .section-title i {
+            color: #58a6ff;
+        }
+        .section-desc {
+            color: #8b949e;
+            margin-bottom: 1.6rem;
+        }
+        .sub-section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.8rem 0 1rem;
+            color: #e6edf3;
+        }
 
-        .projects {
+        /* ----- карточки проектов ----- */
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.2rem;
         }
         .project-card {
@@ -136,32 +169,35 @@
             border-radius: 12px;
             padding: 1.4rem 1.2rem;
             transition: 0.25s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         .project-card:hover {
             border-color: #58a6ff;
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
         .project-card h3 {
             font-size: 1.1rem;
             margin-bottom: 4px;
+            color: #f0f6fc;
         }
         .project-card p {
             color: #8b949e;
             font-size: 0.95rem;
-            margin-bottom: 12px;
+            margin-bottom: 0;
         }
-        .project-card .meta {
-            font-size: 0.85rem;
-            color: #484f58;
-            display: flex;
-            gap: 14px;
-            border-top: 1px solid #30363d;
-            padding-top: 10px;
-        }
-        .project-card .meta i { color: #8b949e; margin-right: 3px; }
 
-        /* ---------------------- Контакты ---------------------- */
+        /* ----- контакты ----- */
+        .contact-section {
+            margin-top: 2.8rem;
+            border-top: 1px solid #30363d;
+            padding-top: 1.8rem;
+        }
+        .contact-section .section-title {
+            margin-top: 0;
+        }
         .contact-links {
             display: flex;
             flex-wrap: wrap;
@@ -177,15 +213,27 @@
             text-decoration: none;
             font-weight: 500;
             transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-links a i {
+            color: #58a6ff;
         }
         .contact-links a:hover {
             border-color: #58a6ff;
             color: #fff;
             background: #1c2333;
         }
-        .contact-links i { color: #58a6ff; margin-right: 6px; }
+        .contact-label {
+            color: #8b949e;
+            font-weight: 500;
+            margin-right: 4px;
+            display: flex;
+            align-items: center;
+        }
 
-        /* ---------------------- Футер ---------------------- */
+        /* ----- футер ----- */
         .footer {
             margin-top: 2.8rem;
             border-top: 1px solid #30363d;
@@ -194,152 +242,240 @@
             color: #484f58;
             font-size: 0.9rem;
         }
+        .footer i {
+            color: #58a6ff;
+        }
 
-        /* ---------------------- Адаптив ---------------------- */
+        /* ----- адаптив ----- */
         @media (max-width: 600px) {
-            .hero { flex-direction: column; text-align: center; }
-            .hero-text .bio { margin: 0 auto; }
-            .badges { justify-content: center; }
-            .nav a { margin: 0 0.8rem; }
-            .projects { grid-template-columns: 1fr; }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text .bio {
+                margin: 0 auto;
+            }
+            .badges {
+                justify-content: center;
+            }
+            .nav a {
+                margin: 0 0.8rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================
+                   ПЕЧАТЬ → PDF
+                   ============================================================ */
+        @page {
+            size: A4;
+            margin: 1.8cm 1.6cm;
+        }
+
+        @media print {
+            /* сброс фона, цвета остаются (печать с фоном включена) */
+            body {
+                background: #0d1117 !important;
+                padding: 0 !important;
+                color: #e6edf3 !important;
+                font-size: 11pt;
+            }
+            .container {
+                max-width: 100% !important;
+            }
+
+            /* убираем интерактивные эффекты */
+            .project-card:hover,
+            .badge:hover,
+            .contact-links a:hover,
+            .nav a:hover {
+                transform: none !important;
+                box-shadow: none !important;
+                border-color: #30363d !important;
+                background: #161b22 !important;
+                color: #8b949e !important;
+            }
+
+            /* ссылки показываем как текст, но подчёркиваем */
+            .project-card,
+            .contact-links a,
+            .nav a {
+                text-decoration: none !important;
+            }
+            .project-card {
+                border: 1px solid #30363d !important;
+                background: #161b22 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .contact-links a {
+                background: #161b22 !important;
+                border: 1px solid #30363d !important;
+                color: #8b949e !important;
+            }
+
+            /* подвал */
+            .footer {
+                margin-top: 2rem;
+                border-top-color: #30363d;
+            }
+
+            /* не разрываем карточки */
+            .projects-grid {
+                gap: 1rem;
+            }
+
+            /* цвета сохраняем */
+            .badge {
+                background: #161b22 !important;
+                border-color: #30363d !important;
+                color: #8b949e !important;
+            }
+            .badge i {
+                color: #58a6ff !important;
+            }
+            .section-title i {
+                color: #58a6ff !important;
+            }
+            .logo {
+                background: linear-gradient(135deg, #58a6ff, #a371f7) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                background-clip: text !important;
+            }
+            .logo i {
+                -webkit-text-fill-color: #58a6ff !important;
+            }
+            .hero-text .tagline,
+            .hero-text .bio,
+            .section-desc,
+            .contact-label {
+                color: #8b949e !important;
+            }
+            .hero-text h1 {
+                color: #e6edf3 !important;
+            }
+            .project-card h3 {
+                color: #f0f6fc !important;
+            }
+            .project-card p {
+                color: #8b949e !important;
+            }
+            .sub-section-title {
+                color: #e6edf3 !important;
+            }
+
+            /* убираем лишние отступы */
+            .header {
+                margin-bottom: 1.6rem;
+                padding-bottom: 0.8rem;
+            }
+            .hero {
+                margin-bottom: 1.8rem;
+                gap: 1.5rem;
+            }
+            .section-title {
+                margin-top: 1.6rem;
+                margin-bottom: 0.6rem;
+            }
+            .contact-section {
+                margin-top: 2rem;
+                padding-top: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
 
-        <!-- Шапка -->
+        <!-- ====== ШАПКА ====== -->
         <header class="header">
             <div class="logo"><i class="fab fa-github"></i> portfolio</div>
-            <nav class="nav"> <!-- Заменяем #projects на реальный адрес -->
+            <nav class="nav">
                 <a href="https://github.com/Multik838?tab=repositories" target="_blank">
-                <i class="fas fa-code"></i> Проекты </a> <!-- Если захотите оставить внутреннюю навигацию --> <!-- <a href="#contact"><i class="fas fa-envelope"></i> Контакты</a> --> 
+                    <i class="fas fa-code"></i> Проекты
+                </a>
             </nav>
         </header>
 
-        <!-- Герой -->
+        <!-- ====== ГЕРОЙ ====== -->
         <section class="hero">
             <div class="avatar">
-                <!-- Замените src на свою аватарку (или удалите img, если не нужна) -->
-                <img src="https://avatars.githubusercontent.com/u/69846294?v=4&size=64" alt="avatar" />
+                <img src="https://avatars.githubusercontent.com/u/69846294?v=4&size=64" alt="Евгений Юдаков" />
             </div>
             <div class="hero-text">
                 <h1>Евгений Юдаков</h1>
-                <div class="tagline">Data analyst/Аналитик данных</div>
+                <div class="tagline">Data analyst / Аналитик данных</div>
                 <div class="bio">Анализирую BIG DATA. Открыт к сотрудничеству.</div>
                 <div class="badges">
                     <span class="badge"><i class="fas fa-map-pin"></i> Москва</span>
                     <span class="badge"><i class="fas fa-briefcase"></i> Опыт 4+ года</span>
-                    <!-- Добавьте свои навыки --> 
-                    <span class="badge"><i class="fas fa-database"></i> SQL</span> 
-                    <span class="badge"><i class="fab fa-python"></i> Python</span> 
+                    <span class="badge"><i class="fas fa-database"></i> SQL</span>
+                    <span class="badge"><i class="fab fa-python"></i> Python</span>
                     <span class="badge"><i class="fab fa-postgresql"></i> PostgreSQL</span>
                 </div>
             </div>
         </section>
 
-        <!-- Проекты -->
-
+        <!-- ====== ПРОЕКТЫ ====== -->
         <section id="projects">
             <h2 class="section-title"><i class="fas fa-code"></i> Проекты</h2>
-            
-            <!-- Оставляем описание или вводный текст о ваших навыках -->
-            <p>Здесь представлены мои работы: от анализа данных до создания дашбордов.</p>
-        
-            <!-- Новый подзаголовок для последних проектов -->
+            <p class="section-desc">Здесь представлены мои работы: от анализа данных до создания дашбордов.</p>
+
             <h3 class="sub-section-title">Последние проекты</h3>
-        
-            <!-- Карточки переносятся сюда -->
-            <a href="https://github.com/Multik838/California" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
+
+            <div class="projects-grid">
+
+                <a href="https://github.com/Multik838/California" target="_blank" class="project-card">
                     <h3>Analysis California</h3>
                     <p>Анализ датасета California Housing и прогнозирование стоимости жилья</p>
-                </div>
-            </a>
-        
-            <a href="https://github.com/Multik838/Dashbord_Key_performance_indicator" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
-                    <h3>Create dashboard key performance indicator</h3>
-                    <p>Демонстрация технических навыков: разработка дашборда для ФССП России</p>
-                </div>
-            </a>
-        
-            <a href="https://github.com/Multik838/Successfully_Closed_Tasks" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
+                </a>
+
+                <a href="https://github.com/Multik838/Dashbord_Key_performance_indicator" target="_blank" class="project-card">
+                    <h3>Dashboard KPI</h3>
+                    <p>Разработка дашборда для ФССП России</p>
+                </a>
+
+                <a href="https://github.com/Multik838/Successfully_Closed_Tasks" target="_blank" class="project-card">
                     <h3>Successfully Closed Tasks</h3>
-                    <p>Демонстрация технических навыков: Анализ успешно закрытых задач</p>
-                </div>
-            </a>
-        
-            <a href="https://github.com/Multik838/Stroke_Predict" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
+                    <p>Анализ успешно закрытых задач</p>
+                </a>
+
+                <a href="https://github.com/Multik838/Stroke_Predict" target="_blank" class="project-card">
                     <h3>Stroke Predict</h3>
                     <p>Прогнозирование риска инсульта по данным пациентов</p>
-                </div>
-            </a>
-        
-            <a href="https://github.com/Multik838/Wehealthy_database" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
+                </a>
+
+                <a href="https://github.com/Multik838/Wehealthy_database" target="_blank" class="project-card">
                     <h3>Wehealthy database</h3>
                     <p>Создание тестовой базы данных для сайта Wehealthy</p>
-                </div>
-            </a>
-        
-            <!-- Здесь можно добавить ещё блоки, например "Другие проекты", если они есть -->
+                </a>
+
+            </div>
         </section>
-        <!-- <div class="projects">
-            <a href="https://github.com/Multik838/California" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
-                    <h3>Analysis California</h3>
-                    <p>Анализ датасета California Housing и прогнозирование стоимости жилья</p>
-                </div>
-            </a>
 
-            <a href="https://github.com/Multik838/Dashbord_Key_performance_indicator" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
-                    <h3>Create dashbord key performance indicator</h3>
-                    <p>Демонстрация технических навыков: разработка дашборда для ФССП России</p>
-                </div>
-            </a>
-
-            <a href="https://github.com/Multik838/Successfully_Closed_Tasks" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
-                    <h3>Successfully Closed Tasks</h3>
-                    <p>Демонстрация технических навыков: Анализ успешно закрытых задач</p>
-                </div>
-            </a>
-
-            <a href="https://github.com/Multik838/Stroke_Predict" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
-                    <h3>Stroke Predict</h3>
-                    <p>Прогнозирование риска инсульта по данным пациентов</p>
-                </div>
-            </a>
-            
-            <a href="https://github.com/Multik838/Wehealthy_database" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div class="project-card">
-                    <h3>Wehealthy database</h3>
-                    <p>Создание тестовой базы данных для сайта Wehealthy</p>
-                </div>
-            </a>
-            <!-- остальные карточки аналогично -->
-        </div> -->
-        
-        <!-- Контакты -->
-        <div class="contact-links">
-            <p> Контакты для связи: </p>
-            <a href="https://github.com/Multik838" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://t.me/Eugene_Poddany" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-            <a href="mailto:evgeny.yudakov@inbox.ru"><i class="fas fa-envelope"></i> Email</a>
-            <a href="https://linkedin.com/in/your-username" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://hh.ru/resume/9ee2a653ff0926fada0039ed1f6a6f6e475753" target="_blank"><i class="fas fa-file-pdf"></i> Резюме</a>
+        <!-- ====== КОНТАКТЫ ====== -->
+        <div class="contact-section">
+            <h2 class="section-title"><i class="fas fa-address-card"></i> Контакты</h2>
+            <div class="contact-links">
+                <span class="contact-label">Свяжитесь со мной:</span>
+                <a href="https://github.com/Multik838" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://t.me/Eugene_Poddany" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="mailto:evgeny.yudakov@inbox.ru"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://linkedin.com/in/your-username" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://hh.ru/resume/9ee2a653ff0926fada0039ed1f6a6f6e475753" target="_blank"><i class="fas fa-file-pdf"></i> Резюме</a>
+            </div>
         </div>
 
-        <!-- Футер -->
+        <!-- ====== ФУТЕР ====== -->
         <footer class="footer">
-            &copy; 2026 · Евгений Юдаков · Сделано с <i class="fas fa-heart" style="color:#58a6ff;"></i> для GitHub
+            &copy; 2026 · Евгений Юдаков · Сделано с <i class="fas fa-heart"></i> для GitHub
         </footer>
 
     </div>
+
 </body>
 </html>
